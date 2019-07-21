@@ -1,0 +1,17 @@
+[
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "jwt-payload",
+		"type": "object",
+		"properties": {
+			"uid": { "type": "string" },
+			"name": { "type": "string" },
+			"role": { "type": "string" },
+			"iss": { "type": "string", "format":"uri" },
+			"sub": { "type": "string", "format":"uri" },
+			"aud": { "type": "string", "format":"uri" },
+			"exp": { "type": "string", "format":"uri" }
+		},
+		"required": [ "uid","name","role","iss","sub","aud","exp" ]
+	}
+]
