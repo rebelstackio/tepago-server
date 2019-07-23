@@ -34,3 +34,32 @@ The main part of it's work will be providing item "hold" tokens and communicatin
 - completed
 - customer_review_invite_sent
 - archived
+
+
+## Development
+
+Yakchat server comes with a vagrant box for development.
+
+```sh
+cd yakchat-server/vagrant # Go to vagrant directory
+vagrant up
+```
+
+Once the vm is fully booted. Go inside with:
+
+```sh
+vagrant ssh 
+```
+
+Make a `.env` file based on the sample with:
+
+```sh
+cd /home/vagrant/yakchat-server
+ln -s .env.sample .env
+```
+
+And run the server with:
+
+```sh
+npm start
+```
