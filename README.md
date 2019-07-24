@@ -63,3 +63,51 @@ And run the server with:
 ```sh
 npm start
 ```
+
+# Endpoints (Initial proposal)
+
+## Items
+
+```json
+GET /items?filter={...}
+
+GET /items/:id (Gets latest modified)
+
+GET /items/:id/:modified
+
+PUT /items/:id
+
+PATCH /items/:id/:column/json-data
+```
+
+## Pricing
+
+```json
+POST /items/:id/:modified/pricing
+```
+
+## Trans
+
+```json
+POST /trans/:item_id/:modified/:pricing_id
+```
+
+## Orders
+
+```json
+GET /orders?filter={...}
+
+GET /orders/:order_id
+
+POST /orders
+```
+
+## Line Items
+
+```
+PUT /orders/:id/line-items/::timestamp
+
+PATCH /orders/:id/line-items/::timestamp/:column/:json-path(optional)
+
+DELETE /orders/:id/line-items/::timestamp
+```
