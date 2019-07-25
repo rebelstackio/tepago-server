@@ -56,7 +56,7 @@ const OrderRouter = function OrderRouter(auth) {
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'patchorderlinein',
 			validres: 'patchorderlineout'
-		}
+		},
 		{
 			method: 'delete',
 			path: '/orders/:oid/line-items/:liid',
