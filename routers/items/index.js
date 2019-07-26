@@ -41,7 +41,7 @@ const ItemRouter = function ItemRouter(auth) {
 		},
 		{
 			method: 'patch',
-			path: '/items/',
+			path: '/items/:iid/:column/:path',
 			rroles: ["registered"],
 			mwares: [ic.patchitem],
 			rxvalid: RX.NOT_ACCEPT_JSON,
