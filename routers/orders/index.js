@@ -1,8 +1,8 @@
 /* routers/orders/index.js */
 'use strict';
-const JSONValidator = require('expressif').JSONValidator;
-const Router = require('expressif').Router;
-const RX = require('expressif').ReqValidator;
+const JSONValidator = require('@rebelstack-io/expressif').JSONValidator;
+const Router = require('@rebelstack-io/expressif').Router;
+const RX = require('@rebelstack-io/expressif').ReqValidator;
 const order = require('schemas/order');
 const types = require('schemas/types.json');
 const components = require('schemas/components.json');

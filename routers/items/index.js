@@ -1,8 +1,8 @@
 /* routers/items/index.js */
 'use strict';
-const JSONValidator = require('expressif').JSONValidator;
-const Router = require('expressif').Router;
-const RX = require('expressif').ReqValidator;
+const JSONValidator = require('@rebelstack-io/expressif').JSONValidator;
+const Router = require('@rebelstack-io/expressif').Router;
+const RX = require('@rebelstack-io/expressif').ReqValidator;
 const item = require('schemas/item');
 const types = require('schemas/types.json');
 const components = require('schemas/components.json');
@@ -23,7 +23,7 @@ const ItemRouter = function ItemRouter(auth) {
 		},
 		{
 			method: 'get',
-			path: '/items/:iid/:',
+			path: '/items/:iid',
 			rroles: ["registered"],
 			mwares: [ic.getitem],
 			rxvalid: RX.NOT_ACCEPT_JSON,
