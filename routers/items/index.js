@@ -3,7 +3,7 @@
 const JSONValidator = require('@rebelstack-io/expressif').JSONValidator;
 const Router = require('@rebelstack-io/expressif').Router;
 const RX = require('@rebelstack-io/expressif').ReqValidator;
-const item = require('schemas/item');
+const item = require('schemas/items');
 const types = require('schemas/types.json');
 const components = require('schemas/components.json');
 const sc = [ types, components ].concat(item);
@@ -19,7 +19,7 @@ const ItemRouter = function ItemRouter(auth) {
 			mwares: [ic.getitems],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'getitemsin',
-			validres: 'getitemssout'
+			// validres: 'getitemssout'
 		},
 		{
 			method: 'get',
@@ -28,7 +28,7 @@ const ItemRouter = function ItemRouter(auth) {
 			mwares: [ic.getitem],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'getitemin',
-			validres: 'getitemout'
+			// validres: 'getitemout'
 		},
 		{
 			method: 'put',
@@ -37,7 +37,7 @@ const ItemRouter = function ItemRouter(auth) {
 			mwares: [ic.putitem],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'putitemin',
-			validres: 'putitemout'
+			// validres: 'putitemout'
 		},
 		{
 			method: 'patch',
@@ -46,7 +46,7 @@ const ItemRouter = function ItemRouter(auth) {
 			mwares: [ic.patchitem],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'patchitemin',
-			validres: 'patchitemout'
+			// validres: 'patchitemout'
 		}
 	];
 	const router = new Router({}, auth, jv);

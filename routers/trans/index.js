@@ -19,7 +19,7 @@ const tranRouter = function tranRouter(auth) {
 			mwares: [tc.gettrans],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'gettransin',
-			validres: 'gettranssout'
+			// validres: 'gettranssout'
 		},
 		{
 			method: 'get',
@@ -28,7 +28,7 @@ const tranRouter = function tranRouter(auth) {
 			mwares: [tc.gettran],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'gettranin',
-			validres: 'gettranout'
+			// validres: 'gettranout'
 		},
 		{
 			method: 'post',
@@ -37,7 +37,7 @@ const tranRouter = function tranRouter(auth) {
 			mwares: [tc.posttran],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'posttranin',
-			validres: 'posttranout'
+			// validres: 'posttranout'
 		}
 	];
 	const router = new Router({}, auth, jv);
