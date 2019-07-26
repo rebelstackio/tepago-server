@@ -3,14 +3,14 @@
 const JSONValidator = require('@rebelstack-io/expressif').JSONValidator;
 const Router = require('@rebelstack-io/expressif').Router;
 const RX = require('@rebelstack-io/expressif').ReqValidator;
-const tran = require('schemas/tran');
+const tran = require('schemas/trans');
 const types = require('schemas/types.json');
 const components = require('schemas/components.json');
 const sc = [ types, components ].concat(tran);
 const tc = require('controllers/tran');
 
 const tranRouter = function tranRouter(auth) {
-	let jv = new JSONValidator(sc, { allErrors: true });
+	let jv = new JSONValidator(sc, { allErrors: true, jsonPointers:true });
 	const routes = [
 		{
 			method: 'get',

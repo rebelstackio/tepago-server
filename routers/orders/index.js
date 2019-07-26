@@ -3,14 +3,14 @@
 const JSONValidator = require('@rebelstack-io/expressif').JSONValidator;
 const Router = require('@rebelstack-io/expressif').Router;
 const RX = require('@rebelstack-io/expressif').ReqValidator;
-const order = require('schemas/order');
+const order = require('schemas/orders');
 const types = require('schemas/types.json');
 const components = require('schemas/components.json');
 const sc = [ types, components ].concat(order);
 const oc = require('controllers/order');
 
 const OrderRouter = function OrderRouter(auth) {
-	let jv = new JSONValidator(sc, { allErrors: true });
+	let jv = new JSONValidator(sc, { allErrors: true, jsonPointers:true });
 	const routes = [
 		{
 			method: 'get',

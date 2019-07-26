@@ -10,7 +10,7 @@ const sc = [ types, components ].concat(item);
 const ic = require('controllers/item');
 
 const ItemRouter = function ItemRouter(auth) {
-	let jv = new JSONValidator(sc, { allErrors: true });
+	let jv = new JSONValidator(sc, { allErrors: true, jsonPointers:true });
 	const routes = [
 		{
 			method: 'get',
