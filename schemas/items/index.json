@@ -1,0 +1,136 @@
+[
+	{
+		"title": "items type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/items.json",
+		"type":"array",
+		"items":{
+			"type":"object",
+			"properties":{
+				"key":{ "type":"string" },
+				"name":{ "type":"string" },
+				"modified":{ "type":"number"},
+				"flags":{ "type":"number" },
+				"tags":{
+					"type":"array",
+					"items":{ "type":"string" }
+				}, "additionalProperties": false
+			}, "required":["key", "modified"], "additionalProperties": false
+		}
+	},
+	{
+		"title": "item type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/item.json",
+		"type":"object",
+		"properties": {
+			"iid": { "type":"string" },
+			"modified": { "type":"number" },
+			"created": { "type":"number" },
+			"modifiedby": {},
+			"createby": {},
+			"flags": { "type":"number" },
+			"tags": {
+				"type":"array",
+				"items":{ "type":"string" }
+			}
+		}, "required":["modified"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getitemsin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query":{
+				"type": "object",
+				"properties": {
+					"filter": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" }
+				}, "additionalProperties": false
+			},
+			"params": { "type":"object" },
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getitemsout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/items.json" }
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getitemin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params": {
+				"type":"object",
+				"properties": {
+					"itemkey": { "type":"string" }
+				}, "required":["itemkey"], "additionalProperties": false
+			},
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "required":["params"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getitemout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/item.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "putitemin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params":{
+				"type":"object",
+				"properties": {
+					"key": { "type":"string" }
+				}, "required":["key"], "additionalProperties": false
+			},
+			"body": { "$ref": "http://loghub.dealerbuilt.com/schemas/item.json" }
+		}, "required":["params","body"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "putitemout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/item.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "patchitemin",
+		"type": "object",
+		"properties": {
+			"body": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/any" },
+			"params": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/patch" }
+		}, "required":["body","params"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "patchitemout",
+		"type": "object",
+		"properties": {
+			"data":{
+				"type":"object"
+			}
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	}
+]

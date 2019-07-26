@@ -1,0 +1,105 @@
+[
+	{
+		"title": "trans type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/trans.json",
+		"type":"array",
+		"items":{
+			"type":"object",
+			"properties":{
+				"tid": { "type":"integer" }
+			}, "required":["tid"], "additionalProperties": false
+		}
+	},
+	{
+		"title": "tran type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/tran.json",
+		"type":"object",
+		"properties": {
+			"tid": { "type":"integer" },
+			"modified": { "type":"number" },
+			"created": { "type":"number" },
+			"modifiedby": {},
+			"createby": {}
+		}, "required":["tid"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "gettransin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query":{
+				"type": "object",
+				"properties": {
+					"filter": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" }
+				}, "additionalProperties": false
+			},
+			"params": { "type":"object" },
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "gettransout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/trans.json" }
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "gettranin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params": {
+				"type":"object",
+				"properties": {
+					"trankey": { "type":"string" }
+				}, "required":["trankey"], "additionalProperties": false
+			},
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "required":["params"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "gettranout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/tran.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "posttranin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params":{
+				"type":"object",
+				"properties": {
+					"tid": { "type":"integer" }
+				}, "required":["tid"], "additionalProperties": false
+			},
+			"body": { "$ref": "http://loghub.dealerbuilt.com/schemas/tran.json" }
+		}, "required":["params","body"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "posttranout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/tran.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	}
+]

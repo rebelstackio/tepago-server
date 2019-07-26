@@ -1,0 +1,130 @@
+[
+	{
+		"title": "orders type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/orders.json",
+		"type":"array",
+		"items":{
+			"type":"object",
+			"properties":{
+				"oid": { "type":"integer" },
+				"modified":{ "type":"number"},
+				"order":{
+				}
+			}, "required":["oid"], "additionalProperties": false
+		}
+	},
+	{
+		"title": "order type",
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "http://loghub.dealerbuilt.com/schemas/order.json",
+		"type":"object",
+		"properties": {
+			"oid": { "type":"integer" },
+			"modified": { "type":"number" },
+			"order": {
+				"type": "object",
+				"properties": {
+					"type":"object"
+				}
+			}
+		}, "required":["modified"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getordersin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query":{
+				"type": "object",
+				"properties": {
+					"filter": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" }
+				}, "additionalProperties": false
+			},
+			"params": { "type":"object" },
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getordersout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/orders.json" }
+		}, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getorderin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params": {
+				"type":"object",
+				"properties": {
+					"oid": { "type":"string" }
+				}, "required":["oid"], "additionalProperties": false
+			},
+			"body": {
+				"type":"object",
+				"properties":{}, "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+			}
+		}, "required":["params"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "getorderout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/order.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "putorderin",
+		"type": "object",
+		"properties": {
+			"header": { "type":"object" },
+			"query": { "type":"object" },
+			"params":{
+				"type":"object",
+				"properties": {
+					"orderkey": { "type":"string" }
+				}, "required":["orderkey"], "additionalProperties": false
+			},
+			"body": { "$ref": "http://loghub.dealerbuilt.com/schemas/order.json" }
+		}, "required":["params","body"], "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "putorderout",
+		"type": "object",
+		"properties": {
+			"data": { "$ref": "http://loghub.dealerbuilt.com/schemas/order.json" }
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "patchorderin",
+		"type": "object",
+		"properties": {
+			"body": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/any" },
+			"params": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/patch" }
+		}, "required":["body","params"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	},
+	{
+		"$schema": "http://json-schema.org/draft-06/schema#",
+		"$id": "patchorderout",
+		"type": "object",
+		"properties": {
+			"data":{
+				"type":"object"
+			}
+		}, "required":["data"], "patternProperties": { "^#": { "type": "string" } }, "additionalProperties": false
+	}
+]
