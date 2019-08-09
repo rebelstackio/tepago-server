@@ -15,7 +15,8 @@ const server = new E.Server(
 		]
 	}
 );
-const auth = new E.Auth(process.env.JWT_SECRET);
+
+global.A = new E.Auth(process.env.JWT_SECRET);
 
 // Unhandled exceptions
 process.on('uncaughtException', function (err) {

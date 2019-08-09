@@ -1,0 +1,75 @@
+{
+	"title": "types and compound parameters schema",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"$id": "http://loghub.dealerbuilt.com/schemas/types.json",
+	"definitions": {
+
+		"any": { "type":["number","string","boolean","object","array", "null"] },
+
+		"timestamp": {
+			"description": "timestamp float8 seconds from from UNIX epoch",
+			"type": "number"
+		},
+
+		"key": {
+			"description": "unique base64 string",
+			"type": "string",
+			"contentEncoding": "base64"
+		},
+
+		"id": {
+			"description": "unique integer",
+			"type":"integer"
+		},
+
+
+		"iso8601interval": {
+			"description": "iso 8601 interval type",
+			"type": "string",
+			"pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$"
+		},
+
+		"ip": {
+			"type": "string",
+			"format": "ipv4"
+		},
+
+		"verb": {
+			"description": "Allowed HTTP verbs",
+			"type": "string",
+			"enum": [
+				"GET",
+				"POST",
+				"PUT",
+				"PATCH",
+				"DELETE",
+				"HEAD",
+				"TRACE",
+				"OPTIONS",
+				"PROPFIND",
+				"PROPPATCH",
+				"UNKNOWN"
+			]
+		},
+
+		"status": {
+			"description": "Allowed HTTP status codes",
+			"type": "string",
+			"enum": [
+				"unknown",
+				"100","101","102","103",
+				"200","201","202","203","204","205","206","207","208","226",
+				"300","301","302","303","304","305","306","307","308",
+				"400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","421","422","423","424","426","428","429","431","451",
+				"500","501","502","503","504","505","506","507","508","510","511",
+				"218","419","420","450","498","499","509","526","530","598","440","449","444","494","495","496","497","520","521","522","523","524","525","527"
+			]
+		},
+
+		"href": {
+			"description": "Href text",
+			"type": "string", "format": "uri-reference"
+		}
+		
+	}
+}

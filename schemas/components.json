@@ -1,0 +1,71 @@
+{
+	"title": "components schema",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"$id": "http://loghub.dealerbuilt.com/schemas/components.json",
+	"definitions": {
+
+		"jwtpayload": {
+			"description": "jwt payload schema",
+			"type": "object",
+			"properties": {
+				"uid": { "type":"string" },
+				"roles": { "type":"array", "items":{ "type":"string" } },
+				"aud": { "type":"string", "format":"uri" },
+				"sub": { "type":"string", "format":"uri" },
+				"iss": { "type":"string", "format":"uri" },
+				"exp": { "type":"string", "format":"date-time" }
+			}, "required":["uid","roles","aud","sub","iss","exp"], "additionalProperties": false
+		},
+
+		"audit": {
+			"description": "audit component structure",
+			"type": "object",
+			"properties": {
+				"createdby": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/jwtpayload" },
+				"created": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/timestamp" },
+				"modified": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/timestamp" },
+				"modifiedby": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/jwtpayload" }
+			}, "required":["createdby","created","modifiedby","modified"], "additionalProperties": false
+		},
+
+		"compare": {
+			"type": "object",
+			"properties": {
+				"column": { "type":"string" },
+				"value": { "$ref": "http://loghub.dealerbuilt.com/schemas/types.json#/definitions/any" },
+				"path": { "type":"string" }
+			}, "required": [ "column","path" ], "additionalProperties": false
+		},
+
+		"filter": {
+			"type": "object",
+			"properties": {
+				"eq": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" },
+				"noteq": { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" },
+				"in":  { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" },
+				"notin":  { "$ref": "http://loghub.dealerbuilt.com/schemas/components.json#/definitions/compare" },
+				"subnet": { "type": "string", "format": "ipv4" },
+				"tags": { "type":"array", "items":{ "type":"string" } },
+				"flags": { "type":"integer" },
+				"modified": {
+					"type": "object",
+					"properties": {
+						"before": { "type": "number" },
+						"after": { "type": "number" }
+					}, "additionalProperties": false
+				}
+			}, "additionalProperties": false
+		},
+
+		"patch": {
+			"type":"object",
+			"properties": {
+				"key": { "type":"string" },
+				"column": { "type":"string" },
+				"path": { "type":"string" }
+			}, "required":["key","column"], "additionalProperties": false
+		}
+
+
+	}
+}
