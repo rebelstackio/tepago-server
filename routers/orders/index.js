@@ -19,7 +19,7 @@ const OrderRouter = function OrderRouter(auth) {
 			mwares: [oc.getorders],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'getordersin',
-			validres: 'getorderssout'
+			// validres: 'getorderssout'
 		},
 		{
 			method: 'get',
@@ -28,7 +28,7 @@ const OrderRouter = function OrderRouter(auth) {
 			mwares: [oc.getorder],
 			rxvalid: RX.NOT_ACCEPT_JSON,
 			validreq: 'getorderin',
-			validres: 'getorderout'
+			// validres: 'getorderout'
 		},
 		{
 			method: 'post',
@@ -36,8 +36,8 @@ const OrderRouter = function OrderRouter(auth) {
 			rroles: ["registered"],
 			mwares: [oc.postorder],
 			rxvalid: RX.NOT_ACCEPT_JSON,
-			validreq: 'postorderin',
-			validres: 'postorderout'
+			// validreq: 'postorderin',
+			// validres: 'postorderout'
 		},
 		{
 			method: 'put',
@@ -45,8 +45,8 @@ const OrderRouter = function OrderRouter(auth) {
 			rroles: ["registered"],
 			mwares: [oc.putorderline],
 			rxvalid: RX.NOT_ACCEPT_JSON,
-			validreq: 'putorderlinein',
-			validres: 'putorderlineout'
+			// validreq: 'putorderlinein',
+			// validres: 'putorderlineout'
 		},
 		{
 			method: 'patch',
@@ -54,8 +54,8 @@ const OrderRouter = function OrderRouter(auth) {
 			rroles: ["registered"],
 			mwares: [oc.patchorderline],
 			rxvalid: RX.NOT_ACCEPT_JSON,
-			validreq: 'patchorderlinein',
-			validres: 'patchorderlineout'
+			// validreq: 'patchorderlinein',
+			// validres: 'patchorderlineout'
 		},
 		{
 			method: 'delete',
@@ -63,8 +63,8 @@ const OrderRouter = function OrderRouter(auth) {
 			rroles: ["registered"],
 			mwares: [oc.deleteorderline],
 			rxvalid: RX.NOT_ACCEPT_JSON,
-			validreq: 'deleteorderlinein',
-			validres: 'deleteorderlineout'
+			// validreq: 'deleteorderlinein',
+			// validres: 'deleteorderlineout'
 		}
 	];
 	const router = new Router({}, auth, jv);

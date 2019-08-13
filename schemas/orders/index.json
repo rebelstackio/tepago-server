@@ -8,9 +8,7 @@
 			"type":"object",
 			"properties":{
 				"oid": { "type":"integer" },
-				"modified":{ "type":"number"},
-				"order":{
-				}
+				"modified":{ "type":"number"}
 			}, "required":["oid"], "additionalProperties": false
 		}
 	},
@@ -23,10 +21,7 @@
 			"oid": { "type":"integer" },
 			"modified": { "type":"number" },
 			"order": {
-				"type": "object",
-				"properties": {
-					"type":"object"
-				}
+				"type": "object"
 			}
 		}, "required":["modified"], "additionalProperties": false
 	},
