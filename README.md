@@ -1,4 +1,4 @@
-# yakchat-server
+# tepago-server
 server providing API endpoints apart from auth-auth and client-specific
 
 yakchat-server provides RESTful API for :
